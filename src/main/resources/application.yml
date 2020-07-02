@@ -1,0 +1,47 @@
+server:
+  port: 2334                              #端口
+  servlet:
+    context-path: /quickyboot               #工程访问上下文名称
+    session:
+      timeout: 3600s
+
+spring:
+  # FREEMARKER (FreeMarkerAutoConfiguration)
+  freemarker:
+    allow-request-override: false
+    allow-session-override: false
+    cache: false
+    charset: UTF-8
+    check-template-location: true
+    content-type: text/html
+    enabled: true
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: true
+    prefer-file-system-access: true
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+    settings:
+      template_update_delay: 0
+      default_encoding: UTF-8
+      classic_compatible: true
+      auto_import: common/core.ftl as c,common/layout.ftl as l
+  #国际化资源配置
+  messages:
+    basename: messages/message
+    encoding: UTF-8
+  profiles:
+    active: dev
+
+logging:
+  level:
+    com:
+      leecheck:
+        mapper: debug
+
+path:
+  mysqlhome: D://ltauth//
+  filePath: ${server.servlet.context-path}/file
+  sql: ${server.servlet.context-path}/file/sql
+
+
